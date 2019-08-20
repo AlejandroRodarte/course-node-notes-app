@@ -1,11 +1,6 @@
-// import the validator npm package found in node_modules folder
-const validator = require('validator');
+// using the chalk npm module
+const chalk = require('chalk');
 
-// log the result of isEmail() method which comes from the validator package
-console.log(validator.isEmail('alejandrorodarte1@gmail.com'));
-
-// now use the isUrl() method
-console.log(validator.isURL('https://www.udemy.com/the-complete-nodejs-developer-course-2/learn/lecture/13728848#questions/7549326'));
-
-// import the getNotes method from the notes.js file
-const getNotes = require('./notes');
+// use the properties on the chalk library to print the string 'Success!' into console
+// with a green color, bold and in inverse manner
+console.log(chalk.green.inverse.bold('Success!'));
