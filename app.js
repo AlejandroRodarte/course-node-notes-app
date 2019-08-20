@@ -37,7 +37,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: ({ title, body }) => {
+    handler({ title, body }) {
         // handler: use the notes service to add a note
         notes.addNote(title, body);
     }
@@ -54,7 +54,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: ({ title }) => {
+    handler({ title }) {
         notes.removeNote(title);
     }
 });
