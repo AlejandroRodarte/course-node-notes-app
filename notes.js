@@ -82,9 +82,26 @@ const removeNote = (title) => {
 
 }
 
+// list notes
+const listNotes = () => {
+
+    console.log(chalk.green('\nYour notes...'));
+
+    // loop through all notes and print their contents
+    loadNotes().forEach(({ title, body }, index) => {
+        console.log(`\nNote ${index + 1}`);
+        console.log(`Title: ${title}`);
+        console.log(`Body: ${body}`);
+    });
+
+    console.log('\n');
+
+}
+
 // use module.exports to export getNotes
 module.exports = {
     getNotes,
     addNote,
-    removeNote
+    removeNote,
+    listNotes
 };
