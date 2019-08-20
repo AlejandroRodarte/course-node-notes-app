@@ -1,6 +1,8 @@
 const chalk = require('chalk');
 const yargs = require('yargs');
-const getNotes = require('./notes');
+
+// get all exports from notes.js
+const notes = require('./notes');
 
 // customize the yargs version of your command actions
 yargs.version('1.1.0');
@@ -36,8 +38,8 @@ yargs.command({
         }
     },
     handler: ({ title, body }) => {
-        // handler: log the contents
-        console.log(`Title: ${title}\nBody: ${body}`);
+        // handler: use the notes service to add a note
+        notes.addNote(title, body);
     }
 });
 
