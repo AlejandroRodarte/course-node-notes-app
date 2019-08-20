@@ -43,7 +43,7 @@ yargs.command({
     }
 });
 
-// create the 'remove' command
+// create the 'remove' command: requires a title string argument
 yargs.command({
     command: 'remove',
     describe: 'Remove a note',
@@ -68,12 +68,19 @@ yargs.command({
     }
 });
 
-// create the 'red' command
+// create the 'read' command: requires a note title argument
 yargs.command({
     command: 'read',
     describe: 'Read a particular note',
-    handler: () => {
-        console.log('Displaying the note...');
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler ({ title }) {
+        notes.readNote(title);
     }
 });
 

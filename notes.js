@@ -4,7 +4,7 @@ const chalk = require('chalk');
 // method to export
 const getNotes = () => {
     return 'Your notes...';
-}
+};
 
 // add a note
 const addNote = (title, body) => {
@@ -36,13 +36,13 @@ const addNote = (title, body) => {
         console.log(chalk.red('Note already exists...'));
     }
 
-}
+};
 
 // save notes to file: stringify and store
 const saveNotes = (notes) => {
     const string = JSON.stringify(notes);
     fs.writeFileSync('notes.json', string);
-}
+};
 
 // fetch the notes from the notes.json file and parse them to JSON
 const loadNotes = () => {
@@ -55,7 +55,7 @@ const loadNotes = () => {
         return [];
     }
 
-}
+};
 
 // remove a note based on title
 const removeNote = (title) => {
@@ -80,7 +80,7 @@ const removeNote = (title) => {
         
     }
 
-}
+};
 
 // list notes
 const listNotes = () => {
@@ -96,12 +96,31 @@ const listNotes = () => {
 
     console.log('\n');
 
-}
+};
+
+// read a note
+const readNote = (title) => {
+
+    // find it by matching titles
+    const foundNote = loadNotes().find((note) => {
+        return title === note.title;
+    });
+
+    // if not found: log error, if found though, log the found note
+    if (foundNote === undefined) {
+        console.log(chalk.red('No note was found...'));
+    } else {
+        console.log(chalk.green(`Title: ${foundNote.title}`));
+        console.log(chalk.green(`Body: ${foundNote.body}`));
+    }
+
+};
 
 // use module.exports to export getNotes
 module.exports = {
     getNotes,
     addNote,
     removeNote,
-    listNotes
+    listNotes,
+    readNote
 };
