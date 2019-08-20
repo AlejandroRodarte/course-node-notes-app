@@ -1,6 +1,26 @@
-// using the chalk npm module
 const chalk = require('chalk');
+const getNotes = require('./notes');
 
-// use the properties on the chalk library to print the string 'Success!' into console
-// with a green color, bold and in inverse manner
-console.log(chalk.blue.inverse.bold('Success!'));
+// first command line argument: action
+const command = process.argv[2];
+
+console.log(process.argv);
+
+switch (command) {
+
+    // add a note action
+    case 'add':
+        console.log('Adding note...');
+        break;
+    
+    // remove a note action
+    case 'remove':
+        console.log('Remove note...');
+        break;
+    
+    // unrecognized action
+    default:
+        console.log('Action not recognized');
+        break;
+
+}
