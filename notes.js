@@ -17,6 +17,9 @@ const addNote = (title, body) => {
         return note.title === title;
     });
 
+    // use debugger keyword to pause on the Chrome debugger
+    debugger
+
     // if note did not exist
     if (foundNote === undefined) {
 
